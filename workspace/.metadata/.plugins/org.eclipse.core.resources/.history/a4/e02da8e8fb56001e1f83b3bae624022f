@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Entity;
+
+use App\Repository\ChaussureRepository;
+use Doctrine\ORM\Mapping as ORM;
+
+#[ORM\Entity(repositoryClass: ChaussureRepository::class)]
+class Chaussure
+{
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Categorie = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Marque = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Description = null;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getCategorie(): ?string
+    {
+        return $this->Categorie;
+    }
+
+    public function setCategorie(string $Categorie): static
+    {
+        $this->Categorie = $Categorie;
+
+        return $this;
+    }
+
+    public function getMarque(): ?string
+    {
+        return $this->Marque;
+    }
+
+    public function setMarque(?string $Marque): static
+    {
+        $this->Marque = $Marque;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->Description;
+    }
+
+    public function setDescription(?string $Description): static
+    {
+        $this->Description = $Description;
+
+        return $this;
+    }
+}

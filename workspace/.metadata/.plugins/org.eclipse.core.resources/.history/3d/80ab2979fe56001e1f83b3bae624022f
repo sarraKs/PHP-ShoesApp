@@ -1,0 +1,55 @@
+<?php
+
+namespace App\DataFixtures;
+
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Persistence\ObjectManager;
+use App\Entity\Chaussure;
+use App\Repository\ChaussureRepository;
+
+
+class AppFixtures extends Fixture
+{
+    /**
+     * Generates initialization data for chaussures : [categorie, marque, couleur]
+     * @return \\Generator
+     */
+    private static function chaussuresDataGenerator()
+    {
+        yield ["Baskets", "Adidas", "Noir"];
+        yield ["Bottes", "Chantal", "Blanc"];
+        yield ["Bottes", "Geox", "Noir"];
+        yield ["Sandales", "Carmela", "Beige"];
+        yield ["Tongues", "Adidas", "Gris"];
+        yield ["Baskets", "Nike", "Rose"];
+        yield ["Baskets", "Geox", "Rose"];
+        yield ["Sandales", "Carmela", "Blanc"];
+    }
+   
+    
+    public function load(ObjectManager $manager)
+    {
+        $filmRepo = $manager->getRepository(Film::class);
+        
+        foreach (self::filmsDataGenerator() as [$title, $year] ) {
+            $film = new Film();
+            $film->setTitle($title);
+            $film->setYear($year);
+            $manager->persist($film);
+        }
+        $manager->flush();
+        
+        foreach (self::filmRecommendationsGenerator() as [$title, $year, $recommendation])
+        {
+            $film = $filmRepo->findOneBy(['title' => $title, 'year' => $year]);
+            $reco = new Recommendation();
+            $reco->setRecommendation($recommendation);
+            $film->addRecommendation($reco);
+            // there's a cascade persist on fim-recommendations which avoids persisting down the relation
+            $manager->persist($film);
+        }
+        $manager->flush();
+    }
+}
+
+}
