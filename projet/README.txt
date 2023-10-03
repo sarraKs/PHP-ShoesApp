@@ -1,39 +1,37 @@
 MyShoes
 
 L'application myshoes a plusieurs entités:
-1) membre
-chaque membre a un seul Placard qui contient plusieurs chaussures, et a aussi plusieurs Expositions
-
+1) Membre
+chaque Membre a un seul Placard qui contient plusieurs Chaussures, et a aussi plusieurs Expositions.
+attributs:
 Nom
-prenom
-Placard
-Expositions
+placard
+expositions
 
 
-2) [objet] chaussure
-chaque chaussure appartient forcement à un placard
-
-categorie: Bottes, baskets, sandales, tongues
-marque: adidas, nike, puma, carmela, chantal, geox
+2) [objet] Chaussure
+chaque Chaussure appartient forcement à un Placard, et un seul. Un Placard peut contenir plusieurs Chaussures.
+attributs:
+categorie (Bottes, baskets, sandales, tongues)
+marque: (adidas, nike, puma, carmela, chantal, geox)
 couleur
 placard
 
-3) [Inventaire] Placard
-Chaque Placard appartient forcement à un membre
 
+3) [Inventaire] Placard
+Un Placard appartient forcement à un Membre, et un seul. Un Placard peut contenir plusieurs Chaussures.
+attributs:
 NomPlacard
 RefPlacard
 chaussures
 membre
--> association 1-1 avec membre
--> association 1-N avec chaussure
+
 
 4) [Galeries] Expositions
-une exposition peut contenir plusieurs chaussures. une chaussure peut appartenir a plusieures expositions
-
-Titre  (exples: elegante en hiver / fitness / rock&roll / confort )
+Une Exposition peut contenir plusieurs Chaussures. Une Chaussure peut appartenir a plusieures Expositions
+attributs:
+Titre  (exples: elegante en hiver / fitness / rock&roll / confort)
 chaussures
--> association N-N avec chaussure
 
 
 5) [marque page]
