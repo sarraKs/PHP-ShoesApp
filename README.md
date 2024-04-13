@@ -6,11 +6,13 @@ Visitez l'application pour admirer les expositions du monde entier!
 Ou 
 Devenez membre, créez votre propre placard et partagez des expositions! 
 
-## Prérequis: 
+## Prérequis
 - L'interpréteur Php
 - Le gestionnaire de paquetage Composer
 - L'utilitaire symfony CLI
 - Un navigateur web
+
+## Lancer l'application
 
 Pour ouvrir l'application, utilisez un terminal pour lancer le serveur depuis le dossier "myshoes" via la commande: `symfony server:start`
 
