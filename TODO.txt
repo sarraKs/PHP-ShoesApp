@@ -1,0 +1,43 @@
+Sarra KOSSENTINI - MyShoes
+
+Les étapes réalisées:
+
+- Initiation du projet symfony. ✅
+- Gestion du code source avec Git. ✅
+- Ajout des entités Placard et Chaussure et leur association. ✅
+- Ajout de tous les attributs de Chaussure. ✅
+- Ajouts des données de test. ✅
+- Ajout de EasyAdmin et des CRUD controlleurs. ✅
+- Ajout de l'entité membre et son association avec Placard. ✅
+- Ajout du front-office, Consultation d'un Placard et de la liste des placards. ✅
+- Ajout de la navigation entre Placard et Chaussure dans EasyAdmin. ✅
+- Utiliser les gabarits Twig pour consulter une chaussure, consulter la liste des chaussures d'un placard et navigation du placard vers ses chaussures. ✅
+- Integrer un style CSS avec Bootstrap dans les gabarits Twig. ✅
+- Integrer des menus de navigation. ✅
+- Ajout de l'entité Exposition et son association avec Chaussure. ✅
+- Ajout des Expositions dans EasyAdmin. ✅
+- Ajout des Expositions au front-office. ✅
+- Ajout des fonctions CRUD au front-office pour Placard. ✅
+- Ajout de la consultation des chaussures depuis les expositions publiques. ✅
+- Ajout d'un contrôleur CRUD pour Membres. ✅
+- Consultation de la liste des seuls inventaires d'un membre dans le front-office. ✅
+- Contextualisation de la création d'un Placard en fonction du Membre. ✅
+- Contextualisation de la création d'une chaussure en fonction du Placard. ✅
+- Contextualisation de la création d'une exposition en fonction du membre. ✅
+- Affichage des seules expositions publiques. ✅
+- Ajout des Utilisateurs et de l'association avec Membre. ✅
+- Ajout de l'authentification. ✅
+- Protection de l'accès aux routes interdites réservées aux membres. ✅
+- Protection de l'accès aux données à leurs seuls propriétaires. ✅
+- contextualisation du chargement des données en fonction de l'utilisateur connecté. ✅
+- Gestion de la suppression. ✅
+
+
+Les éléments à corriger ou améliorer:
+
+- Contextualisation de l'ajout d'une chaussure à une exposition (Lors de la création ou la modification d'une exposition, seuls les chaussures du membre connecté doivent apparaitre dans les suggestions).
+- Ajouter des photos de chaussures.
+- Ameliorer le design.
+- L'interface EasyAdmin a quelques pages/actions non fonctionnelles. 
+- Utiliser des messages flash pour les CRUDs.
+- Ajouter une gestion de marque-pages/panier dans le front-office.

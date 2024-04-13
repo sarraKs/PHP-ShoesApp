@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Chaussure{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle Chaussure</h1>
+
+    {{ include('chaussure/_form.html.twig') }}
+	
+	
+	<a href="{{ path('placard_show', {'id': placard.id}) }}">Retour au placard</a>
+{% endblock %}

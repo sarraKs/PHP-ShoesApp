@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Exposition{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle Exposition</h1>
+
+    {{ include('exposition/_form.html.twig') }}
+
+	
+    <a href="{{ path('app_member_show', {'id': member.id}) }}">Retour au profil</a>
+    <a href="{{ path('app_exposition_index') }}">Retour aux expositions</a>
+{% endblock %}

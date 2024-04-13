@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membre{% endblock %}
+
+{% block body %}
+    <h1>Membre</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ member.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ member.Nom }}</td>
+            </tr>
+            <tr>
+                <th>Placard</th>
+                <td><a href="{{ path('placard_show', {'id' : member.placard.id}) }}">{{ member.placard }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Expositions</h2>
+		<ul>
+   			{% for exposition in member.expositions %}
+   				<li>
+     				<a href="{{ path('app_exposition_show', {'id': exposition.id}) }}">{{ exposition }}</a>
+   				</li>
+   			{% endfor %}
+		</ul>
+
+	<a href="{{ path('app_exposition_new', {'id': member.id}) }}">Nouvelle exposition</a>
+	
+	
+	{% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('app_member_index') }}">Liste des membres</a>
+	{% endif %}
+    
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier la Chaussure{% endblock %}
+
+{% block body %}
+    <h1>Modifier la Chaussure</h1>
+
+    {{ include('chaussure/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('app_exposition_index') }}">Retour aux expositions</a>
+    <a href="{{ path('placard_show', {'id': chaussure.placard.id}) }}">Retour au Placard</a>
+
+    {{ include('chaussure/_delete_form.html.twig') }}
+{% endblock %}

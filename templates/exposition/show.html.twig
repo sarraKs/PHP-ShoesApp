@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Exposition{% endblock %}
+
+{% block body %}
+    <h1>Exposition</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ exposition.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ exposition.titre }}</td>
+            </tr>
+            <tr>
+                <th>Publiee</th>
+                <td>{{ exposition.publiee ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Chaussures</h2>
+		<ul>
+   			{% for chaussure in exposition.chaussures %}
+   				<li>
+     				{#
+     				<a href="{{ path('app_exposition_chaussure_show', {'exposition_id': exposition.id, 'chaussure_id': chaussure.id}) }}">{{ chaussure }}</a>
+ 					
+ 					#}
+ 					<a href="{{ path('chaussure_show', {'id': chaussure.id}) }}">{{ chaussure }}</a>  				
+   				</li>
+   			{% endfor %}
+		</ul>
+
+	
+    <a href="{{ path('app_exposition_index') }}">Retour aux expositions</a>
+	
+	{% if is_granted('ROLE_USER') %}
+    <a href="{{ path('app_exposition_edit', {'id': exposition.id}) }}">Modifier</a>
+    {{ include('exposition/_delete_form.html.twig') }}
+    {% endif %}
+	
+    
+{% endblock %}

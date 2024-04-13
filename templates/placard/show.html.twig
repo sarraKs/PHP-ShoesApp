@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+      <h1>Details du Placard</h1>
+
+         
+
+      <table class="table">
+          <tbody>
+              <tr>
+                  <th>Id</th>
+                  <td>{{ placard.id }}</td>
+              </tr>
+              <tr>
+                  <th>Placard</th>
+                  <td>{{ placard.NomPlacard }}</td>
+              </tr>
+              <tr>
+                  <th>Référence</th>
+                  <td>{{ placard.RefPlacard }}</td>
+              </tr>
+              <tr>
+                  <th>Appartient au membre</th>
+                  <td>{{ placard.member }}</td>
+              </tr>
+              <tr>
+                  <th>Chaussures</th>
+                  <td>
+                  <ul>
+                  {%  for chaussure in placard.chaussures %}
+                  <li>
+                  <a href="{{ path('chaussure_show', {'id': chaussure.id}) }}">{{ chaussure }}</a>
+                  </li>
+                  {% endfor %} 
+                  </ul> 
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      
+      <a href="{{ path('app_chaussure_new', {'id': placard.id}) }}">Nouvelle chaussure</a>
+      
+      <a href="{{ path('app_placard_edit', {'id': placard.id}) }}">Modifier</a>
+      
+      <a href="{{ path('app_exposition_index') }}">Retour aux expositions</a>
+
+
+  {% endblock %} {# body #} 

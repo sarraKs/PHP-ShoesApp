@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier le Placard{% endblock %}
+
+{% block body %}
+    <h1>Modifier le Placard</h1>
+
+    {{ include('placard/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('placard_show', {'id': placard.id}) }}">Retour au placard</a>
+
+{% endblock %}

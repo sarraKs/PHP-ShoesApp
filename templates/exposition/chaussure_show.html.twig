@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details de Chaussure{% endblock %}
+
+{% block body %}
+
+    <h1>Details de la Chaussure {{chaussure.id}}</h1>
+
+      <table class="table">
+          <tbody>
+              <tr>
+                  <th>Id</th>
+                  <td>{{ chaussure.id }}</td>
+              </tr>
+              <tr>
+                  <th>Titre</th>
+                  <td>{{ chaussure.TitreChaussure }}</td>
+              </tr>
+              <tr>
+                  <th>Categorie</th>
+                  <td>{{ chaussure.Categorie }}</td>
+              </tr>
+              <tr>
+                  <th>Marque</th>
+                  <td>{{ chaussure.Marque }}</td>
+              </tr>
+              <tr>
+                  <th>Couleur</th>
+                  <td>{{ chaussure.Couleur }}</td>
+              </tr>
+          </tbody>
+      </table>
+	  
+	  <a href="{{ path('app_exposition_show', {'id': exposition.id}) }}">Retour à l'exposition</a>
+
+
+{% endblock %}

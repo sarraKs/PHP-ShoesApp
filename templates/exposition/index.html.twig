@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Expositions{% endblock %}
+
+{% block body %}
+    <h1>Toutes les Expositions</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Publiee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for exposition in expositions %}
+        	       
+            <tr>
+                <td>{{ exposition.id }}</td>
+                <td>{{ exposition.titre }}</td>
+                <td>{{ exposition.publiee ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('app_exposition_show', {'id': exposition.id}) }}">Details</a>
+                    {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('app_exposition_edit', {'id': exposition.id}) }}">Modifier</a>
+                    {% endif %}
+                </td>
+            </tr>
+            
+        {% else %}
+            <tr>
+                <td colspan="4">Pas d'expositions trouvés</td>
+            </tr>
+        {% endfor %}
+        
+        {% for privateexposition in privateexpositions %}
+        	
+            <tr>
+                <td>{{ privateexposition.id }}</td>
+                <td>{{ privateexposition.titre }}</td>
+                <td>{{ privateexposition.publiee ? 'Oui' : 'Non' }}</td>
+                <td>
+                    <a href="{{ path('app_exposition_show', {'id': privateexposition.id}) }}">Details</a>
+                    {% if is_granted('ROLE_USER') %}
+                    <a href="{{ path('app_exposition_edit', {'id': privateexposition.id}) }}">Modifier</a>
+                    {% endif %}
+                </td>
+            </tr>
+            
+        
+        {% endfor %}
+        
+        </tbody>
+    </table>
+
+
+{% endblock %}

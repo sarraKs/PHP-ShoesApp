@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Membres{% endblock %}
+
+
+{% block body %}
+	{% if is_granted('ROLE_ADMIN') %}
+    <h1>Liste des Membres</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.Nom }}</td>
+                <td>
+                    <a href="{{ path('app_member_show', {'id': member.id}) }}">Details</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de membres</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1>Mon Profil</h1>
+	<div>
+		{% for member in members %}
+			Bienvenue {{ member.Nom }}!
+			<br>
+			<a href="{{ path('app_member_show', {'id': member.id}) }}">-> Acceder au profil</a>
+    	{% endfor %}
+    </div>
+    {% endif %}
+
+{% endblock %}
+

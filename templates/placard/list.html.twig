@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Placards!{% endblock %}
+
+{% block body %}
+{% if is_granted('ROLE_ADMIN') %}
+<h1>Liste des Placards</h1>
+{% endif %}
+
+{% if is_granted('ROLE_USER') and not is_granted('ROLE_ADMIN') %}
+<h1>Mon Placard</h1>
+{% endif %}
+
+<div>
+<ul>
+  
+  {% for placard in placards %}
+  <li> <a href="{{ path('placard_show', {'id' : placard.id}) }}">{{ placard.NomPlacard }}</a></li>
+  {% endfor %} 
+</ul>
+
+</div>
+
+
+{% endblock %} {# body #}
